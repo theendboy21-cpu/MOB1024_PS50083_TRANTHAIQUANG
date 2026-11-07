@@ -30,9 +30,18 @@ public void setmovie(String movie){
 public void setbasePrice(double basePrice){
     this.basePrice = basePrice;
 }
+@SuppressWarnings("resource")
 public void nhap(){
     Scanner sc = new Scanner(System.in);
-
+    
+    System.out.print("Nhập ID: ");
+    this.Id = sc.nextLine();
+    
+    System.out.print("Nhập tên phim: ");
+    this.movie = sc.nextLine();
+    
+    System.out.print("Nhập giá vé cơ bản: ");
+    this.basePrice = sc.nextDouble();
 }
 public double finalPrice(){
     return basePrice;
