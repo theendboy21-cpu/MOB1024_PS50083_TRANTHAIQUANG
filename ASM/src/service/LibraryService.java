@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class LibraryService {
-    // Dùng Map<String, Document> giúp truy xuất nhanh theo mã tài liệu và giữ thứ tự thêm
+   
     private Map<String, Document> documentMap = new LinkedHashMap<>();
     private final String FILE_PATH = "library_data.dat";
 
@@ -54,7 +54,7 @@ public class LibraryService {
             System.out.println("Không tìm thấy tài liệu có mã: " + docId);
             return;
         }
-        // Kiểm tra trùng mã bản sao trong tài liệu (hoặc toàn hệ thống tùy quy định)
+       
         for (Copy c : doc.getCopies()) {
             if (c.getCopyId().equalsIgnoreCase(newCopy.getCopyId())) {
                 throw new DuplicateIdException("Lỗi: Mã bản sao '" + newCopy.getCopyId() + "' đã tồn tại trong tài liệu này!");
@@ -84,15 +84,6 @@ public class LibraryService {
         return false;
     }
 
-    // --- LƯU & ĐỌC FILE BẰNG OBJECT I/O STREAMS ---
-    public void saveToFile() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_PATH))) {
-            oos.writeObject(documentMap);
-            System.out.println("Lưu dữ liệu thành công vào file " + FILE_PATH);
-        } catch (IOException e) {
-            System.err.println("Lỗi khi lưu file: " + e.getMessage());
-        }
-    }
 
     @SuppressWarnings("unchecked")
     public void loadFromFile() {

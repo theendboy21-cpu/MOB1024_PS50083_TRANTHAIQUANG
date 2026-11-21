@@ -99,10 +99,10 @@ public class Main {
                             ? "Xóa bản sao thành công!" : "Không tìm thấy dữ liệu!");
                     break;
                 case 8:
-                    service.saveToFile();
+                    // service.saveToFile();
                     break;
                 case 0:
-                    service.saveToFile();
+                    // service.saveToFile();
                     System.out.println("Đã thoát chương trình.");
                     return;
                 default:

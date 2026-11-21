@@ -10,7 +10,7 @@ public class Document implements Serializable {
     private String docId;
     private String title;
     private String author;
-    private List<Copy> copies; // Quan hệ 1-N bằng List
+    private List<Copy> copies; 
 
     public Document(String docId, String title, String author) {
         this.docId = docId;
